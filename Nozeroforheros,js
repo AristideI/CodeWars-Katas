@@ -1,0 +1,16 @@
+function noBoringZeros(n) {
+  let elements = String(n).split("")
+  let checker = true
+  
+  while(true){
+    if(elements[elements.length - 1] != 0){
+      break
+      checker = false
+    }
+    else{
+      elements.pop(elements[elements.length - 1])
+    }
+  }
+  
+  return Number(elements.join(""))
+}
