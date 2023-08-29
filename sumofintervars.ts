@@ -45,17 +45,30 @@ Your algorithm should be able to handle large intervals. All tested intervals ar
 
 */
 
-export function sumOfIntervals(intervals: [number, number][]) {
-  let ints: number[] = [];
-  intervals.forEach((elt) => {
-    for (let i = elt[0]; i < elt[1]; i++) {
-      if (!ints.includes(i)) {
-        ints.push(i);
-      }
-    }
-  });
+export function sumOfIntervals(intervals: [number, number][]): number {
+  // Sort intervals based on start of each interval
+  intervals.sort((a, b) => a[0] - b[0]);
 
-  return ints.length;
+  let mergedIntervals: [number, number][] = [];
+
+  for (let interval of intervals) {
+    if (
+      mergedIntervals.length === 0 ||
+      mergedIntervals[mergedIntervals.length - 1][1] < interval[0]
+    ) {
+      // If the current interval does not overlap with the last merged interval, push it to the mergedIntervals
+      mergedIntervals.push(interval);
+    } else {
+      // Otherwise, merge the current interval with the last merged interval
+      mergedIntervals[mergedIntervals.length - 1][1] = Math.max(
+        mergedIntervals[mergedIntervals.length - 1][1],
+        interval[1]
+      );
+    }
+  }
+
+  // Sum up the lengths of the merged intervals
+  return mergedIntervals.reduce((acc, [start, end]) => acc + (end - start), 0);
 }
 
 console.log(sumOfIntervals([[-1234252, 2]]));
