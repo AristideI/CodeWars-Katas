@@ -47,3 +47,11 @@ export class Vector {
     return true;
   }
 }
+
+
+
+
+let aa=new Vector([1,2,3,4])
+let bb=new Vector([4,5,8,9])
+
+console.log(aa.add(bb).equals)
