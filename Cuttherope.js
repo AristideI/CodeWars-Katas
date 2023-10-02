@@ -1,10 +1,10 @@
 function cutTheRopes(a) {
   let des = [a.length];
   while (a.every((elt) => elt !== 0)) {
-    let sub = Math.min(...a.filter((elt) => elt !== 0));
-    console.log("new sub", sub);
-    a = a.map((elt) => elt - sub);
-    des.push(a.filter((elt) => elt !== 0));
+    let minimun = Math.min(...a.filter((elt) => elt !== 0));
+    console.log("new sub", minimun);
+    a = a.map((elt) => elt - minimun);
+    des.push(a.filter((elt) => elt !== 0).length);
   }
 
   console.log("A", Math.min(...a));
