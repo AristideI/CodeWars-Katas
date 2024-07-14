@@ -19,3 +19,13 @@ export const productFib = (prod: number): [number, number, boolean] => {
 };
 
 console.log(productFib(5895));
+
+function changeToBase64(file: File) {
+  let reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = function () {
+    console.log(reader.result);
+  };
+}
+
+
