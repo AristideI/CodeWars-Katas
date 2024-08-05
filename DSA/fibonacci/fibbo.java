@@ -1,3 +1,4 @@
+package DSA.fibonacci;
 public class fibbo {
     public static void main(String[] args) {
         int n = 10; // Example size

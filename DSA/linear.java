@@ -1,3 +1,4 @@
+package DSA;
 public class linear {
           public static void main(String[] args){
                     System.out.println(Linear(5));
